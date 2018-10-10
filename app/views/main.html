@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-6" style="border-right: 1px solid grey">
+      <table class="container-fluid">
+        <tr ng-repeat="person in persons | orderBy:['surname','name']">
+          <td>{{ person.name }}</td>
+          <td>{{ person.surname }}</td>
+          <td>{{ person.age }}</td>
+          <td>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+              <button class="btn btn-danger" type="button" ng-click="onDelete(person)">Delete</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <form class="form-horizontal" role="form" ng-submit="addRow()">
+        <div class="form-group">
+          <label for="name">First Name :</label>
+          <input  class="form-control" id="name" ng-model="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="surname">Last Name :</label>
+          <input class="form-control" id="surname" ng-model="surname" required>
+        </div>
+        <div class="form-group">
+          <label for="age">Age :</label>
+          <input type="number" class="form-control" id="age" ng-model="age" required>
+        </div>
+       <div class="form-group">               
+           <input type="submit" value="Add Row" class="btn btn-primary"/>
+      </div>
+      </form>
+    </div>
+    <div class="col-sm-6 col-smd-6 col-lg-6">
+      <canvas id="pieChart" width="256" height="256"></canvas>
+    </div>
+  </div>
+</div>
